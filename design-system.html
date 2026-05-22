@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="vi" class="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DSB · Design System v2.0</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700;800&display=swap&v=2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&v=2" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-surface": "#191c22",
+          "on-surface-variant": "#424753",
+          "surface": "#f9f9ff",
+          "surface-bright": "#ffffff",
+          "surface-dim": "#d8d9e2",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#f2f3fc",
+          "surface-container": "#ecedf6",
+          "surface-container-high": "#e7e8f1",
+          "surface-container-highest": "#e1e2eb",
+          "outline": "#727784",
+          "outline-variant": "#c2c6d5",
+          "vnd-primary-50": "#E5F2FF",
+          "vnd-primary-100": "#CCE5FF",
+          "vnd-primary-200": "#99CBFF",
+          "vnd-primary-400": "#3391F0",
+          "vnd-primary-500": "#0077ED",
+          "vnd-primary-700": "#005CBD",
+          "vnd-primary-900": "#00205B",
+          "vnd-primary-950": "#001233",
+          "vnd-accent-green": "#00C97D",
+          "vnd-accent-amber": "#FFB020",
+          "vnd-warning": "#FF8C33",
+          "vnd-danger": "#EF4444",
+          "vnd-neutral-50": "#FAFAFA",
+          "vnd-neutral-100": "#F4F4F5",
+          "vnd-neutral-950": "#0A0A0B",
+          "anvie-primary": "#FF6B35",
+          "anvie-accent": "#4ECDC4",
+          "pti-primary": "#8B2E8F",
+          "primary": "#0077ED",
+          "primary-container": "#CCE5FF",
+          "on-primary": "#ffffff",
+          "secondary-container": "#75f8b3",
+          "on-secondary-fixed-variant": "#005232",
+          "tertiary-fixed": "#ffdbcc",
+          "tertiary": "#833400",
+          "error-container": "#ffdad6",
+          "on-error-container": "#93000a"
+        },
+        borderRadius: {
+          DEFAULT: "0.375rem",
+          sm: "0.25rem",
+          lg: "0.625rem",
+          xl: "0.875rem",
+          "2xl": "1.125rem",
+          "3xl": "1.5rem",
+          full: "9999px"
+        },
+        spacing: {
+          "unit-1": "0.25rem",
+          "unit-2": "0.5rem",
+          "unit-3": "0.75rem",
+          "unit-4": "1rem",
+          "unit-5": "1.25rem",
+          "unit-6": "1.5rem",
+          "unit-8": "2rem",
+          "unit-10": "2.5rem",
+          "unit-12": "3rem",
+          "unit-16": "4rem",
+          "margin": "2rem",
+          "gutter": "1.5rem"
+        },
+        fontFamily: {
+          sans: ["Inter", "system-ui", "sans-serif"],
+          display: ["Lexend", "Inter", "sans-serif"],
+          mono: ["JetBrains Mono", "ui-monospace", "monospace"]
+        },
+        fontSize: {
+          "label-xs": ["11px", { lineHeight: "1.4", fontWeight: "500", letterSpacing: "0.04em" }],
+          "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+          "body-sm": ["13px", { lineHeight: "1.5", fontWeight: "400" }],
+          "body-md": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+          "body-lg": ["16px", { lineHeight: "1.55", fontWeight: "400" }],
+          "title-sm": ["14px", { lineHeight: "1.4", fontWeight: "600" }],
+          "title-md": ["16px", { lineHeight: "1.35", fontWeight: "600" }],
+          "title-lg": ["18px", { lineHeight: "1.3", fontWeight: "600" }],
+          "headline-sm": ["20px", { lineHeight: "1.3", fontWeight: "600", letterSpacing: "-0.01em" }],
+          "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600", letterSpacing: "-0.015em" }],
+          "headline-lg": ["30px", { lineHeight: "1.2", fontWeight: "700", letterSpacing: "-0.02em" }],
+          "display-sm": ["36px", { lineHeight: "1.15", fontWeight: "700", letterSpacing: "-0.025em" }],
+          "display-md": ["44px", { lineHeight: "1.1", fontWeight: "700", letterSpacing: "-0.03em" }],
+          "financial-sm": ["14px", { lineHeight: "1.4", fontWeight: "600" }],
+          "financial-md": ["18px", { lineHeight: "1.3", fontWeight: "600" }],
+          "financial-lg": ["28px", { lineHeight: "1.2", fontWeight: "700", letterSpacing: "-0.01em" }],
+          "financial-xl": ["40px", { lineHeight: "1.1", fontWeight: "700", letterSpacing: "-0.02em" }]
+        },
+        boxShadow: {
+          "xs": "0 1px 2px rgba(15, 23, 42, 0.04)",
+          "soft": "0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 6px 18px -8px rgba(15, 23, 42, 0.08)",
+          "lift": "0 10px 30px -12px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.04)",
+          "brand": "0 10px 30px -10px rgba(0, 119, 237, 0.45)"
+        }
+      }
+    }
+  };
+</script>
+<style>
+  html, body, #root { height: 100%; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f2f3fc;
+    color: #191c22;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family: 'Lexend', sans-serif; letter-spacing: -0.01em; }
+  .font-mono   { font-family: 'JetBrains Mono', monospace; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    user-select: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #c2c6d5; border-radius: 99px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .bg-mesh-dark {
+    background-color: #001233;
+    background-image:
+      radial-gradient(at 20% 10%, rgba(51, 145, 240, 0.40) 0px, transparent 50%),
+      radial-gradient(at 80% 0%,  rgba(0, 201, 125, 0.18) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(139, 46, 143, 0.30) 0px, transparent 50%);
+  }
+  .ring-track { stroke: #e1e2eb; }
+  .ring-fill  { stroke: #0077ED; transition: stroke-dashoffset .6s cubic-bezier(.2,.7,.2,1); }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .animate-fade-in { animation: fade-in .25s ease-out both; }
+  @keyframes slide-in-right { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .animate-slide-in { animation: slide-in-right .28s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes pulse-soft { 0%,100% { opacity: .5 } 50% { opacity: 1 } }
+  .animate-pulse-soft { animation: pulse-soft 2.2s ease-in-out infinite; }
+  *:focus-visible { outline: 2px solid #0077ED; outline-offset: 2px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="src/ui.jsx"></script>
+
+<script type="text/babel">
+/* global React, ReactDOM, window */
+const { useState, useEffect, useRef } = React;
+
+// ── Token data ─────────────────────────────────────────────────────────────
+
+const COLOR_GROUPS = [
+  {
+    name: "VND Primary",
+    tokens: [
+      { token: "vnd-primary-50",  hex: "#E5F2FF", dark: false },
+      { token: "vnd-primary-100", hex: "#CCE5FF", dark: false },
+      { token: "vnd-primary-200", hex: "#99CBFF", dark: false },
+      { token: "vnd-primary-400", hex: "#3391F0", dark: true  },
+      { token: "vnd-primary-500", hex: "#0077ED", dark: true  },
+      { token: "vnd-primary-700", hex: "#005CBD", dark: true  },
+      { token: "vnd-primary-900", hex: "#00205B", dark: true  },
+      { token: "vnd-primary-950", hex: "#001233", dark: true  },
+    ]
+  },
+  {
+    name: "Semantic Surface",
+    tokens: [
+      { token: "surface-container-lowest",  hex: "#ffffff", dark: false },
+      { token: "surface-container-low",     hex: "#f2f3fc", dark: false },
+      { token: "surface-container",         hex: "#ecedf6", dark: false },
+      { token: "surface-container-high",    hex: "#e7e8f1", dark: false },
+      { token: "surface-container-highest", hex: "#e1e2eb", dark: false },
+      { token: "surface",                   hex: "#f9f9ff", dark: false },
+      { token: "surface-bright",            hex: "#ffffff", dark: false },
+      { token: "surface-dim",               hex: "#d8d9e2", dark: false },
+    ]
+  },
+  {
+    name: "Semantic Text & Border",
+    tokens: [
+      { token: "on-surface",         hex: "#191c22", dark: true  },
+      { token: "on-surface-variant", hex: "#424753", dark: true  },
+      { token: "outline",            hex: "#727784", dark: true  },
+      { token: "outline-variant",    hex: "#c2c6d5", dark: false },
+    ]
+  },
+  {
+    name: "Accent",
+    tokens: [
+      { token: "vnd-accent-green", hex: "#00C97D", dark: true  },
+      { token: "vnd-accent-amber", hex: "#FFB020", dark: false },
+      { token: "vnd-warning",      hex: "#FF8C33", dark: true  },
+      { token: "vnd-danger",       hex: "#EF4444", dark: true  },
+    ]
+  },
+  {
+    name: "Brand Partners",
+    tokens: [
+      { token: "anvie-primary", hex: "#FF6B35", dark: true },
+      { token: "anvie-accent",  hex: "#4ECDC4", dark: true },
+      { token: "pti-primary",   hex: "#8B2E8F", dark: true },
+    ]
+  },
+  {
+    name: "Neutral",
+    tokens: [
+      { token: "vnd-neutral-50",  hex: "#FAFAFA", dark: false },
+      { token: "vnd-neutral-100", hex: "#F4F4F5", dark: false },
+      { token: "vnd-neutral-950", hex: "#0A0A0B", dark: true  },
+    ]
+  },
+  {
+    name: "Semantic Role",
+    tokens: [
+      { token: "primary",           hex: "#0077ED", dark: true  },
+      { token: "primary-container", hex: "#CCE5FF", dark: false },
+      { token: "on-primary",        hex: "#ffffff", dark: false },
+      { token: "secondary-container",         hex: "#75f8b3", dark: false },
+      { token: "on-secondary-fixed-variant",  hex: "#005232", dark: true  },
+      { token: "tertiary-fixed",    hex: "#ffdbcc", dark: false },
+      { token: "tertiary",          hex: "#833400", dark: true  },
+      { token: "error-container",   hex: "#ffdad6", dark: false },
+      { token: "on-error-container",hex: "#93000a", dark: true  },
+    ]
+  }
+];
+
+const TYPE_SCALE = [
+  { name: "display-md",   size: "44px", weight: 700, lh: "1.1",  ls: "-0.03em",  family: "display", sample: "Financial Advisor OS" },
+  { name: "display-sm",   size: "36px", weight: 700, lh: "1.15", ls: "-0.025em", family: "display", sample: "Dynamic Service Blueprint" },
+  { name: "headline-lg",  size: "30px", weight: 700, lh: "1.2",  ls: "-0.02em",  family: "display", sample: "Lộ trình 30-60-90" },
+  { name: "headline-md",  size: "24px", weight: 600, lh: "1.3",  ls: "-0.015em", family: "display", sample: "Hôm nay làm gì với KH nào?" },
+  { name: "headline-sm",  size: "20px", weight: 600, lh: "1.3",  ls: "-0.01em",  family: "display", sample: "Khách hàng & Pipeline" },
+  { name: "title-lg",     size: "18px", weight: 600, lh: "1.3",  ls: "0",        family: "display", sample: "Tiến độ Hiệu suất" },
+  { name: "title-md",     size: "16px", weight: 600, lh: "1.35", ls: "0",        family: "display", sample: "Lead đang chăm sóc" },
+  { name: "title-sm",     size: "14px", weight: 600, lh: "1.4",  ls: "0",        family: "display", sample: "Trạng thái pipeline" },
+  { name: "body-lg",      size: "16px", weight: 400, lh: "1.55", ls: "0",        family: "sans",    sample: "Thông tin khách hàng và danh mục đầu tư" },
+  { name: "body-md",      size: "14px", weight: 400, lh: "1.5",  ls: "0",        family: "sans",    sample: "Đang xác minh ngân sách & timeline theo yêu cầu" },
+  { name: "body-sm",      size: "13px", weight: 400, lh: "1.5",  ls: "0",        family: "sans",    sample: "Ghi chú và lịch sử tương tác với khách hàng" },
+  { name: "label-sm",     size: "12px", weight: 500, lh: "1.4",  ls: "0",        family: "sans",    sample: "Trạng thái · Pipeline · Phân loại" },
+  { name: "label-xs",     size: "11px", weight: 500, lh: "1.4",  ls: "0.04em",   family: "sans",    sample: "LABEL XS · UPPERCASE · TRACKING",   upper: true },
+  { name: "financial-xl", size: "40px", weight: 700, lh: "1.1",  ls: "-0.02em",  family: "display", sample: "184 tỷ",   fin: true },
+  { name: "financial-lg", size: "28px", weight: 700, lh: "1.2",  ls: "-0.01em",  family: "display", sample: "18.4 tỷ",  fin: true },
+  { name: "financial-md", size: "18px", weight: 600, lh: "1.3",  ls: "0",        family: "display", sample: "4.2 tỷ",   fin: true },
+  { name: "financial-sm", size: "14px", weight: 600, lh: "1.4",  ls: "0",        family: "display", sample: "412 triệu", fin: true },
+];
+
+const SHADOWS = [
+  {
+    name: "shadow-xs",
+    css: "0 1px 2px rgba(15,23,42,.04)",
+    label: "Micro lift",
+    usage: "Inputs, inline chips, tight elements"
+  },
+  {
+    name: "shadow-soft",
+    css: "0 2px 8px -2px rgba(15,23,42,.06), 0 6px 18px -8px rgba(15,23,42,.08)",
+    label: "Cards & panels",
+    usage: "Cards, sidebars, contained sections"
+  },
+  {
+    name: "shadow-lift",
+    css: "0 10px 30px -12px rgba(15,23,42,.18), 0 2px 6px rgba(15,23,42,.04)",
+    label: "Overlay",
+    usage: "Modals, drawers, popovers, dropdowns"
+  },
+  {
+    name: "shadow-brand",
+    css: "0 10px 30px -10px rgba(0,119,237,.45)",
+    label: "Brand CTA",
+    usage: "Primary action buttons (vnd-primary)"
+  },
+];
+
+const RADII = [
+  { name: "rounded-sm",   px: "4px",   rem: "0.25rem",  usage: "Dense badges, tight rows" },
+  { name: "rounded",      px: "6px",   rem: "0.375rem", usage: "Small tags, mini chips" },
+  { name: "rounded-lg",   px: "10px",  rem: "0.625rem", usage: "Sidebar nav items, list rows" },
+  { name: "rounded-xl",   px: "14px",  rem: "0.875rem", usage: "Buttons (sm/md), form inputs" },
+  { name: "rounded-2xl",  px: "18px",  rem: "1.125rem", usage: "Cards, stat tiles" },
+  { name: "rounded-3xl",  px: "24px",  rem: "1.5rem",   usage: "Large cards, hero panels" },
+  { name: "rounded-full", px: "∞",     rem: "9999px",   usage: "Avatars, toggle switches, pill chips" },
+];
+
+const SPACING_TOKENS = [
+  { name: "unit-1",  px: 4,  usage: "" },
+  { name: "unit-2",  px: 8,  usage: "" },
+  { name: "unit-3",  px: 12, usage: "" },
+  { name: "unit-4",  px: 16, usage: "Base row height rhythm" },
+  { name: "unit-5",  px: 20, usage: "" },
+  { name: "unit-6",  px: 24, usage: "Section padding" },
+  { name: "unit-8",  px: 32, usage: "Card padding" },
+  { name: "unit-10", px: 40, usage: "Tall rows" },
+  { name: "unit-12", px: 48, usage: "Section gap" },
+  { name: "unit-16", px: 64, usage: "Hero sections" },
+  { name: "gutter",  px: 24, usage: "Page horizontal gutter" },
+  { name: "margin",  px: 32, usage: "Page margin" },
+];
+
+const ICON_SAMPLES = [
+  // Navigation & app
+  "dashboard","school","rocket_launch","hub","trending_up","build","menu_book",
+  // Actions
+  "add","edit","delete","close","check","search","filter_list","sort","refresh",
+  "open_in_new","file_download","upload","share","more_horiz","more_vert",
+  // Communication
+  "mail","call","chat","videocam","forum","campaign","notifications","send","mic",
+  // Status & feedback
+  "check_circle","cancel","warning","error","info","help","pending","schedule",
+  "lock","lock_open","visibility","visibility_off","auto_awesome",
+  // People & org
+  "person","people","diversity_3","groups","person_add","logout","settings",
+  "supervisor_account","workspace_premium","badge","star",
+  // Data & charts
+  "show_chart","monitoring","analytics","stacked_line_chart","pie_chart","leaderboard",
+  "inventory_2","payments","account_balance","savings","trending_down",
+  // Navigation arrows
+  "arrow_forward","arrow_back","chevron_right","chevron_left","expand_more","expand_less",
+  "right_panel_open","right_panel_close","menu",
+  // Tools
+  "calculate","fact_check","summarize","list_alt","task_alt","psychology",
+  "ssid_chart","auto_awesome_mosaic","palette","dataset",
+];
+
+const NAV_SECTIONS = [
+  {
+    id: "foundations",
+    label: "Foundations",
+    items: [
+      { id: "colors",     label: "Color Palette" },
+      { id: "typography", label: "Typography" },
+      { id: "spacing",    label: "Spacing" },
+      { id: "radius",     label: "Border Radius" },
+      { id: "shadows",    label: "Elevation" },
+      { id: "icons",      label: "Iconography" },
+    ]
+  },
+  {
+    id: "components",
+    label: "Components",
+    items: [
+      { id: "avatar",    label: "Avatar" },
+      { id: "badge",     label: "Badge & Pill" },
+      { id: "button",    label: "Button" },
+      { id: "card",      label: "Card" },
+      { id: "tabs",      label: "Tabs" },
+      { id: "toggle",    label: "Toggle" },
+      { id: "textfield", label: "TextField" },
+      { id: "chips",     label: "Chips & Filter" },
+      { id: "empty",     label: "Empty State" },
+    ]
+  },
+  {
+    id: "data-display",
+    label: "Data Display",
+    items: [
+      { id: "stat",      label: "Stat Tile" },
+      { id: "sparkline", label: "Sparkline" },
+      { id: "barchart",  label: "Bar Chart" },
+      { id: "donut",     label: "Donut Chart" },
+      { id: "progress",  label: "Progress Ring" },
+    ]
+  },
+];
+
+// ── Small helpers ───────────────────────────────────────────────────────────
+
+function Chip({ children }) {
+  return (
+    <code className="font-mono text-[11px] text-vnd-primary-700 bg-vnd-primary-50 px-1.5 py-0.5 rounded leading-none">
+      {children}
+    </code>
+  );
+}
+
+function SecHeader({ children, sub }) {
+  return (
+    <div className="mb-6 pb-4 border-b border-outline-variant/40">
+      <h2 className="font-display font-bold text-headline-md text-vnd-primary-900">{children}</h2>
+      {sub && <p className="text-body-md text-on-surface-variant mt-1 max-w-2xl">{sub}</p>}
+    </div>
+  );
+}
+
+function GroupLabel({ children }) {
+  return (
+    <p className="text-[10.5px] font-bold uppercase tracking-[0.12em] text-on-surface-variant mb-3">
+      {children}
+    </p>
+  );
+}
+
+function Section({ id, children }) {
+  return (
+    <section id={id} className="scroll-mt-[80px] pt-10 pb-10 border-b border-outline-variant/20 last:border-0">
+      {children}
+    </section>
+  );
+}
+
+// ── Color swatch ────────────────────────────────────────────────────────────
+
+function Swatch({ token, hex, dark }) {
+  const [copied, setCopied] = useState(false);
+  const copy = () => {
+    try { navigator.clipboard.writeText(hex); } catch (_) {}
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1400);
+  };
+  return (
+    <button onClick={copy}
+      className="group flex flex-col rounded-xl overflow-hidden ring-1 ring-black/[0.08] shadow-xs hover:shadow-soft transition-all text-left w-full focus-visible:ring-2 focus-visible:ring-vnd-primary-500">
+      <div className="h-12 w-full transition-transform group-hover:scale-y-[1.04] origin-bottom"
+        style={{ backgroundColor: hex }} />
+      <div className="bg-white px-2.5 pt-2 pb-2.5">
+        <p className={`font-mono text-[10.5px] font-bold leading-none ${copied ? "text-vnd-accent-green" : "text-vnd-primary-900"}`}>
+          {copied ? "✓ copied" : hex}
+        </p>
+        <p className="text-[9.5px] text-on-surface-variant mt-1 truncate">{token}</p>
+      </div>
+    </button>
+  );
+}
+
+// ── Design System page ──────────────────────────────────────────────────────
+
+function DesignSystem() {
+  const [activeId, setActiveId] = useState("colors");
+  const [tabVal, setTabVal]     = useState("all");
+  const [toggleA, setToggleA]   = useState(true);
+  const [toggleB, setToggleB]   = useState(false);
+  const [toggleC, setToggleC]   = useState(true);
+
+  // IntersectionObserver drives sidebar active state
+  useEffect(() => {
+    const allIds = NAV_SECTIONS.flatMap(g => g.items.map(i => i.id));
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) setActiveId(e.target.id); }),
+      { rootMargin: "-28% 0px -60% 0px" }
+    );
+    allIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+    return () => obs.disconnect();
+  }, []);
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Chart data
+  const sparkA = [42, 58, 51, 71, 88, 76, 62, 80, 74, 91];
+  const sparkB = [91, 80, 74, 62, 76, 88, 71, 51, 58, 42];
+  const barData = ["T2","T3","T4","T5","T6","T7","CN"].map((l, i) => ({
+    label: l, value: [42, 58, 51, 71, 88, 76, 62][i], highlight: i === 4
+  }));
+  const donutData = [
+    { label: "Equity VN",       pct: 36, color: "#0077ED" },
+    { label: "Bond / Fixed",    pct: 24, color: "#00C97D" },
+    { label: "Mutual Fund",     pct: 18, color: "#FFB020" },
+    { label: "Insurance Link",  pct: 12, color: "#8B2E8F" },
+    { label: "Cash & Equiv.",   pct: 10, color: "#727784" },
+  ];
+
+  const totalColors = COLOR_GROUPS.reduce((s, g) => s + g.tokens.length, 0);
+
+  return (
+    <div className="min-h-screen bg-surface-container-low">
+
+      {/* ── Top header ── */}
+      <header className="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur border-b border-outline-variant/40 shadow-xs">
+        <div className="max-w-[1440px] mx-auto px-6 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <a href="index.html"
+              className="w-9 h-9 bg-vnd-primary-900 rounded-lg flex items-center justify-center text-white font-display font-bold text-[20px] leading-none hover:bg-vnd-primary-950 transition-colors"
+              title="Back to App">D</a>
+            <div className="w-px h-5 bg-outline-variant" />
+            <p className="font-display font-semibold text-[15px] text-vnd-primary-900 hidden sm:block">Design System</p>
+            <Badge tone="blue" size="sm">v2.0</Badge>
+          </div>
+          <nav className="flex items-center gap-5 text-[12.5px] text-on-surface-variant">
+            <a href="login.html" className="hover:text-vnd-primary-700 transition-colors font-medium">Login</a>
+            <a href="index.html" className="hover:text-vnd-primary-700 transition-colors font-medium">App</a>
+            <div className="w-px h-4 bg-outline-variant" />
+            <div className="flex items-center gap-2 text-[11px]">
+              <span className="w-2 h-2 rounded-full bg-vnd-accent-green animate-pulse-soft" />
+              <span className="font-mono text-on-surface-variant">React 18 · Tailwind CDN</span>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <div className="max-w-[1440px] mx-auto flex">
+
+        {/* ── Sidebar ── */}
+        <aside className="hidden lg:flex flex-col w-56 xl:w-60 flex-shrink-0 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto scrollbar-thin border-r border-outline-variant/30 bg-surface-container-lowest py-6">
+          {NAV_SECTIONS.map(group => (
+            <div key={group.id} className="mb-5 px-4">
+              <p className="text-[9.5px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/70 mb-1.5 px-2">{group.label}</p>
+              <ul className="space-y-0.5">
+                {group.items.map(item => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollTo(item.id)}
+                      className={`w-full text-left px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all
+                        ${activeId === item.id
+                          ? "bg-vnd-primary-50 text-vnd-primary-700 font-semibold"
+                          : "text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface"}`}>
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="mt-auto px-4 pt-4 border-t border-outline-variant/30">
+            <div className="p-3 rounded-xl bg-vnd-primary-50 ring-1 ring-vnd-primary-100">
+              <p className="text-[11px] font-semibold text-vnd-primary-900">{totalColors} color tokens</p>
+              <p className="text-[10.5px] text-vnd-primary-700 mt-0.5">{TYPE_SCALE.length} type styles · {ICON_SAMPLES.length}+ icons</p>
+            </div>
+          </div>
+        </aside>
+
+        {/* ── Main content ── */}
+        <main className="flex-1 min-w-0 px-6 xl:px-10 py-6 max-w-[960px]">
+
+          {/* Hero banner */}
+          <div className="bg-mesh-dark rounded-2xl p-8 mb-4 text-white relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-vnd-accent-green/15 blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-1/4 w-72 h-48 rounded-full bg-vnd-primary-500/25 blur-[80px] pointer-events-none" />
+            <div className="relative z-10">
+              <p className="font-mono text-[10.5px] tracking-[0.3em] uppercase text-vnd-accent-green mb-3">▸ DSB · Design System</p>
+              <h1 className="font-display font-bold text-[34px] xl:text-[40px] leading-[1.08] tracking-[-0.025em] mb-3">
+                Dynamic Service Blueprint<br />
+                <span className="text-white/50 font-light text-[28px] xl:text-[32px]">Component Library</span>
+              </h1>
+              <p className="text-white/65 text-[14px] leading-relaxed max-w-lg">
+                Hệ thống token và component cho Financial Advisor OS — xây dựng trên Tailwind CSS, React 18 và Material Symbols Outlined.
+              </p>
+              <div className="flex flex-wrap items-center gap-6 mt-5 text-[11.5px]">
+                {[
+                  { v: totalColors,           l: "color tokens" },
+                  { v: TYPE_SCALE.length,     l: "type styles"  },
+                  { v: "20+",                 l: "components"   },
+                  { v: ICON_SAMPLES.length+"+", l: "icons"      },
+                ].map(({ v, l }) => (
+                  <span key={l} className="text-white/60">
+                    <span className="font-mono text-white font-semibold text-[15px]">{v}</span> {l}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── COLORS ── */}
+          <Section id="colors">
+            <SecHeader
+              sub="Hệ thống màu theo Material Design 3, tùy chỉnh cho thương hiệu VNDIRECT. Click swatch để copy hex code.">
+              Color Palette
+            </SecHeader>
+            {COLOR_GROUPS.map(group => (
+              <div key={group.name} className="mb-7">
+                <GroupLabel>{group.name}</GroupLabel>
+                <div className="grid grid-cols-4 sm:grid-cols-6 xl:grid-cols-8 gap-2">
+                  {group.tokens.map(t => <Swatch key={t.token} {...t} />)}
+                </div>
+              </div>
+            ))}
+          </Section>
+
+          {/* ── TYPOGRAPHY ── */}
+          <Section id="typography">
+            <SecHeader sub="3 typefaces: Lexend (display/headlines), Inter (body/label), JetBrains Mono (code/numbers). 17 named type styles.">
+              Typography
+            </SecHeader>
+
+            <div className="mb-8">
+              <GroupLabel>Display & Headline — Lexend</GroupLabel>
+              <div className="space-y-0.5">
+                {TYPE_SCALE.filter(t => t.name.startsWith("display") || t.name.startsWith("headline")).map(t => (
+                  <div key={t.name} className="flex items-baseline gap-4 py-3 border-b border-outline-variant/15 last:border-0 group hover:bg-surface-container-lowest/80 rounded-lg px-2 -mx-2 transition-colors">
+                    <Chip>{t.name}</Chip>
+                    <span className="font-mono text-[10px] text-on-surface-variant w-20 text-right flex-shrink-0">{t.size} / {t.weight}</span>
+                    <p className="font-display flex-1 min-w-0 text-vnd-primary-900 truncate"
+                      style={{ fontSize: t.size, fontWeight: t.weight, lineHeight: t.lh, letterSpacing: t.ls || undefined }}>
+                      {t.sample}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <GroupLabel>Title — Lexend</GroupLabel>
+              <div className="space-y-0.5">
+                {TYPE_SCALE.filter(t => t.name.startsWith("title")).map(t => (
+                  <div key={t.name} className="flex items-baseline gap-4 py-2.5 border-b border-outline-variant/15 last:border-0 hover:bg-surface-container-lowest/80 rounded-lg px-2 -mx-2 transition-colors">
+                    <Chip>{t.name}</Chip>
+                    <span className="font-mono text-[10px] text-on-surface-variant w-20 text-right flex-shrink-0">{t.size} / {t.weight}</span>
+                    <p className="font-display flex-1 min-w-0 text-vnd-primary-900"
+                      style={{ fontSize: t.size, fontWeight: t.weight, lineHeight: t.lh }}>
+                      {t.sample}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <GroupLabel>Body & Label — Inter</GroupLabel>
+              <div className="space-y-0.5">
+                {TYPE_SCALE.filter(t => t.name.startsWith("body") || t.name.startsWith("label")).map(t => (
+                  <div key={t.name} className="flex items-baseline gap-4 py-2.5 border-b border-outline-variant/15 last:border-0 hover:bg-surface-container-lowest/80 rounded-lg px-2 -mx-2 transition-colors">
+                    <Chip>{t.name}</Chip>
+                    <span className="font-mono text-[10px] text-on-surface-variant w-20 text-right flex-shrink-0">{t.size} / {t.weight}</span>
+                    <p className="font-sans flex-1 min-w-0 text-on-surface"
+                      style={{ fontSize: t.size, fontWeight: t.weight, lineHeight: t.lh, letterSpacing: t.ls || undefined, textTransform: t.upper ? "uppercase" : undefined }}>
+                      {t.sample}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <GroupLabel>Financial — Lexend (dark background)</GroupLabel>
+              <div className="bg-vnd-primary-900 rounded-xl p-6 flex flex-wrap items-end gap-8">
+                {TYPE_SCALE.filter(t => t.fin).map(t => (
+                  <div key={t.name} className="flex flex-col items-center gap-2">
+                    <p className="font-display text-white"
+                      style={{ fontSize: t.size, fontWeight: t.weight, lineHeight: t.lh, letterSpacing: t.ls || undefined }}>
+                      {t.sample}
+                    </p>
+                    <Chip>{t.name}</Chip>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <GroupLabel>Monospace — JetBrains Mono</GroupLabel>
+              <div className="bg-vnd-primary-950 rounded-xl p-5 space-y-1">
+                {["11px","12px","13px","14px"].map(sz => (
+                  <p key={sz} className="font-mono text-vnd-accent-green" style={{ fontSize: sz }}>
+                    const advisor = {"{ name: 'Nguyễn Hoàng Anh', icmScore: 782, bmi: 'BMI-3' }"};
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── SPACING ── */}
+          <Section id="spacing">
+            <SecHeader sub="12 named spacing tokens. Đơn vị base 4px. Dùng trong padding, margin, gap.">
+              Spacing Scale
+            </SecHeader>
+            <div className="space-y-2">
+              {SPACING_TOKENS.map(s => (
+                <div key={s.name} className="flex items-center gap-4 py-1.5 hover:bg-surface-container-lowest/80 rounded-lg px-2 -mx-2 transition-colors">
+                  <Chip>{s.name}</Chip>
+                  <div className="flex-1 flex items-center">
+                    <div className="bg-vnd-primary-400 rounded-sm opacity-70"
+                      style={{ width: s.px, height: 20, minWidth: 4 }} />
+                  </div>
+                  <span className="font-mono text-[11px] text-on-surface-variant w-8 text-right">{s.px}px</span>
+                  <span className="font-mono text-[11px] text-on-surface-variant/60 w-16 text-right">{(s.px / 16).toFixed(3).replace(/\.?0+$/, "")}rem</span>
+                  {s.usage && <span className="text-[11px] text-on-surface-variant/70 w-36 hidden xl:block">{s.usage}</span>}
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* ── RADIUS ── */}
+          <Section id="radius">
+            <SecHeader sub="7 border-radius steps. rounded-lg: nav items · rounded-xl: buttons, inputs · rounded-2xl: cards · rounded-full: pills, avatars.">
+              Border Radius
+            </SecHeader>
+            <div className="flex flex-wrap items-end gap-5">
+              {RADII.map(r => (
+                <div key={r.name} className="flex flex-col items-center gap-2.5">
+                  <div className="w-16 h-16 bg-vnd-primary-100 ring-2 ring-vnd-primary-400/50"
+                    style={{ borderRadius: r.rem === "9999px" ? "9999px" : r.rem }} />
+                  <Chip>{r.name}</Chip>
+                  <span className="font-mono text-[10px] text-on-surface-variant">{r.px}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 grid grid-cols-1 xl:grid-cols-2 gap-3">
+              {RADII.map(r => (
+                <div key={r.name} className="flex items-center gap-3 text-[12px] text-on-surface-variant">
+                  <Chip>{r.name}</Chip>
+                  <span className="text-on-surface-variant/70">{r.usage}</span>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* ── SHADOWS ── */}
+          <Section id="shadows">
+            <SecHeader sub="4 shadow levels following Material elevation system. shadow-brand is brand-specific for primary actions.">
+              Elevation & Shadows
+            </SecHeader>
+            <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+              {SHADOWS.map(s => (
+                <div key={s.name} className="flex flex-col gap-3">
+                  <div className="h-28 bg-white rounded-2xl flex flex-col items-center justify-center gap-1"
+                    style={{ boxShadow: s.css }}>
+                    <Chip>{s.name}</Chip>
+                    <span className="text-[11px] text-on-surface-variant font-semibold mt-1">{s.label}</span>
+                  </div>
+                  <p className="text-[11px] text-on-surface-variant text-center leading-snug">{s.usage}</p>
+                </div>
+              ))}
+            </div>
+            <div className="p-4 bg-vnd-primary-950 rounded-xl">
+              {SHADOWS.map(s => (
+                <div key={s.name} className="flex items-start gap-3 py-2 border-b border-white/5 last:border-0">
+                  <code className="font-mono text-[10.5px] text-vnd-accent-green w-32 flex-shrink-0">{s.name}</code>
+                  <code className="font-mono text-[10px] text-white/50 leading-relaxed">{s.css}</code>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* ── ICONS ── */}
+          <Section id="icons">
+            <SecHeader sub="Material Symbols Outlined — variable font. Props: name, size (default 20), filled, weight (100–700).">
+              Iconography
+            </SecHeader>
+            <div className="mb-6">
+              <GroupLabel>Variants — same icon, different settings</GroupLabel>
+              <div className="flex items-center gap-1 p-4 bg-white rounded-xl ring-1 ring-outline-variant/30 flex-wrap">
+                {[
+                  { label: "Default",     filled: false, weight: 400, size: 24 },
+                  { label: "Filled",      filled: true,  weight: 400, size: 24 },
+                  { label: "Bold",        filled: false, weight: 600, size: 24 },
+                  { label: "Filled Bold", filled: true,  weight: 600, size: 24 },
+                ].map(v => (
+                  <div key={v.label} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-surface-container-low transition-colors">
+                    <Icon name="school" size={v.size} filled={v.filled} weight={v.weight} className="text-vnd-primary-500" />
+                    <span className="text-[10.5px] text-on-surface-variant">{v.label}</span>
+                  </div>
+                ))}
+                <div className="w-px h-12 bg-outline-variant mx-3" />
+                <div className="flex items-end gap-4">
+                  {[16, 20, 24, 28, 32].map(sz => (
+                    <div key={sz} className="flex flex-col items-center gap-2">
+                      <Icon name="rocket_launch" size={sz} className="text-on-surface-variant" />
+                      <span className="text-[10px] font-mono text-on-surface-variant">{sz}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div>
+              <GroupLabel>Icon library ({ICON_SAMPLES.length} samples)</GroupLabel>
+              <div className="grid grid-cols-6 sm:grid-cols-8 xl:grid-cols-10 gap-1.5">
+                {ICON_SAMPLES.map(name => (
+                  <div key={name}
+                    className="flex flex-col items-center gap-1.5 p-2.5 rounded-lg bg-white ring-1 ring-outline-variant/20 hover:ring-vnd-primary-300 hover:bg-vnd-primary-50/40 transition-all cursor-default group">
+                    <Icon name={name} size={22} className="text-on-surface-variant group-hover:text-vnd-primary-600 transition-colors" />
+                    <span className="text-[8.5px] font-mono text-on-surface-variant text-center leading-tight">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── AVATAR ── */}
+          <Section id="avatar">
+            <SecHeader sub="Initials-based avatar. Props: initials, name, size, tone, subtle. 6 color tones.">
+              Avatar
+            </SecHeader>
+            <div className="mb-6">
+              <GroupLabel>Color tones</GroupLabel>
+              <div className="flex items-center gap-4 flex-wrap p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {["blue","green","amber","purple","slate","rose"].map(tone => (
+                  <div key={tone} className="flex flex-col items-center gap-2">
+                    <Avatar initials={tone.slice(0,2).toUpperCase()} tone={tone} size={44} />
+                    <span className="text-[11px] text-on-surface-variant">{tone}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <GroupLabel>Sizes</GroupLabel>
+              <div className="flex items-end gap-5 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {[24, 32, 40, 48, 56, 72].map(sz => (
+                  <div key={sz} className="flex flex-col items-center gap-2">
+                    <Avatar initials="NA" size={sz} />
+                    <span className="text-[10px] font-mono text-on-surface-variant">{sz}px</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── BADGE & PILL ── */}
+          <Section id="badge">
+            <SecHeader sub="Badge for inline status labels. PriorityPill for P1/P2/P3/P4 indicators.">
+              Badge &amp; Priority Pill
+            </SecHeader>
+            <div className="mb-6">
+              <GroupLabel>Badge — tones</GroupLabel>
+              <div className="flex flex-wrap gap-2 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {["neutral","blue","green","amber","red","purple","dark","outline","ghost"].map(tone => (
+                  <Badge key={tone} tone={tone}>{tone}</Badge>
+                ))}
+              </div>
+            </div>
+            <div className="mb-6">
+              <GroupLabel>Badge — sizes</GroupLabel>
+              <div className="flex items-center gap-3 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                <Badge size="xs" tone="blue" icon="star">xs</Badge>
+                <Badge size="sm" tone="blue" icon="star">sm (default)</Badge>
+                <Badge size="md" tone="blue" icon="star">md</Badge>
+              </div>
+            </div>
+            <div>
+              <GroupLabel>Priority Pill</GroupLabel>
+              <div className="flex items-center gap-3 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {["P1","P2","P3","P4"].map(p => (
+                  <div key={p} className="flex flex-col items-center gap-2">
+                    <PriorityPill level={p} />
+                    <span className="text-[10px] text-on-surface-variant">{p}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── BUTTON ── */}
+          <Section id="button">
+            <SecHeader sub="7 tones × 5 sizes + icon-only. Font: Lexend semibold. Supports icon, iconRight, as prop.">
+              Button
+            </SecHeader>
+            <div className="mb-6">
+              <GroupLabel>Tones — size md</GroupLabel>
+              <div className="flex flex-wrap gap-2 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {["primary","dark","soft","neutral","outline","ghost","danger","success"].map(tone => (
+                  <Button key={tone} tone={tone} icon="rocket_launch">{tone}</Button>
+                ))}
+              </div>
+            </div>
+            <div className="mb-6">
+              <GroupLabel>Sizes — tone primary</GroupLabel>
+              <div className="flex flex-wrap items-center gap-2 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                {["xs","sm","md","lg"].map(size => (
+                  <Button key={size} size={size} tone="primary">{size}</Button>
+                ))}
+                <div className="w-px h-8 bg-outline-variant mx-1" />
+                <Button size="icon" tone="primary" icon="add" />
+                <Button size="icon" tone="outline" icon="settings" />
+                <Button size="icon" tone="ghost" icon="more_horiz" />
+                <Button size="icon" tone="soft" icon="auto_awesome" />
+              </div>
+            </div>
+            <div>
+              <GroupLabel>Common patterns</GroupLabel>
+              <div className="flex flex-wrap gap-2 p-5 bg-white rounded-xl ring-1 ring-outline-variant/30">
+                <Button tone="primary" icon="add">Thêm widget</Button>
+                <Button tone="outline" icon="file_download">Xuất báo cáo</Button>
+                <Button tone="ghost" icon="history">Lịch sử hỏi</Button>
+                <Button tone="soft" icon="auto_awesome">AI Buddy</Button>
+                <Button tone="dark" iconRight="arrow_forward">Xem thêm</Button>
+                <Button tone="danger" icon="delete">Xoá</Button>
+                <Button tone="success" icon="check">Xác nhận</Button>
+              </div>
+            </div>
+          </Section>
+
+          {/* ── CARD ── */}
+          <Section id="card">
+            <SecHeader sub="Surface container. Props: padded (default true), hoverable. bg-white · rounded-2xl · shadow-soft · ring-1.">
+              Card
+            </SecHeader>
+            <div className="grid grid-cols-3 gap-4">
+              <Card>
+                <p className="text-label-sm text-on-surface-variant uppercase tracking-wider">Default card</p>
+                <p className="font-display font-bold text-headline-md text-vnd-primary-900 mt-1">184 tỷ</p>
+                <p className="text-body-sm text-on-surface-variant mt-1">AUM phụ trách · 128 clients</p>
+              </Card>
+              <Card hoverable>
+                <p className="text-label-sm text-on-surface-variant uppercase tracking-wider">Hoverable</p>
+                <p className="font-display font-bold text-headline-md text-vnd-primary-900 mt-1">38.4%</p>
+                <p className="text-body-sm text-on-surface-variant mt-1">Win rate · +2.1pp</p>
+              </Card>
+              <Card padded={false} className="overflow-hidden">
+                <div className="bg-vnd-primary-900 p-4">
+                  <p className="text-[10.5px] font-mono text-white/50 uppercase tracking-wider">padded=false</p>
+                  <p className="font-display font-semibold text-white mt-1">Custom layout</p>
+                </div>
+                <div className="p-4">
+                  <p className="text-body-sm text-on-surface-variant">Tuỳ chỉnh padding theo content.</p>
+                </div>
+              </Card>
+            </div>
+          </Section>
+
+          {/* ── TABS ── */}
+          <Section id="tabs">
+            <SecHeader sub="Props: value, onChange, tabs=[{id,label,icon?,count?}], dense. Standard = underline, dense = pill.">
+              Tabs
+            </SecHeader>
+            <div className="mb-6">
+              <GroupLabel>Standard tabs (with count)</GroupLabel>
+              <div className="bg-white rounded-xl p-5 ring-1 ring-outline-variant/30">
+                <Tabs
+                  value={tabVal} onChange={setTabVal}
+                  tabs={[
+                    { id: "all",  label: "Tất cả",      count: 42 },
+                    { id: "p1",   label: "P1 Urgent",   count: 6  },
+                    { id: "p2",   label: "P2 Medium",   count: 14 },
+                    { id: "done", label: "Hoàn thành",  count: 22 },
+                  ]}
+                />
+                <p className="mt-4 text-[12px] text-on-surface-variant font-mono">
+                  active: <span className="text-vnd-primary-700">{tabVal}</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <GroupLabel>Dense (pill-style)</GroupLabel>
+              <div className="bg-white rounded-xl p-5 ring-1 ring-outline-variant/30 inline-block">
+                <Tabs dense value={tabVal} onChange={setTabVal}
+                  tabs={[
+                    { id: "all",  label: "Tất cả",   icon: "apps" },
+                    { id: "p1",   label: "Active",    icon: "bolt" },
+                    { id: "done", label: "Archived",  icon: "archive" },
+                  ]}
+                />
+              </div>
+            </div>
+          </Section>
+
+          {/* ── TOGGLE ── */}
+          <Section id="toggle">
+            <SecHeader sub="Boolean switch. Props: on, onChange, label, hint.">
+              Toggle / Switch
+            </SecHeader>
+            <div className="grid grid-cols-2 gap-4 max-w-lg">
+              <div className="bg-white p-5 rounded-xl ring-1 ring-outline-variant/30 space-y-4">
+                <Toggle on={toggleA} onChange={setToggleA} label="Compact sidebar" hint="Thu gọn còn icon" />
+                <Toggle on={toggleB} onChange={setToggleB} label="Dark mode" hint="Chưa hỗ trợ" />
+                <Toggle on={toggleC} onChange={setToggleC} label="Nhận thông báo" hint="Push notifications" />
+              </div>
+              <div className="bg-surface-container p-5 rounded-xl ring-1 ring-outline-variant/30 flex flex-col gap-2">
+                <p className="text-[10.5px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">State</p>
+                {[
+                  { l: "Compact sidebar", v: toggleA },
+                  { l: "Dark mode",       v: toggleB },
+                  { l: "Thông báo",       v: toggleC },
+                ].map(({ l, v }) => (
+                  <div key={l} className="flex items-center justify-between">
+                    <span className="text-[12px] text-on-surface">{l}</span>
+                    <Badge tone={v ? "green" : "neutral"} size="xs">{v ? "on" : "off"}</Badge>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── TEXT FIELD ── */}
+          <Section id="textfield">
+            <SecHeader sub="Controlled-friendly. Props: label, hint, error, icon, suffix, as (input/textarea/select).">
+              TextField
+            </SecHeader>
+            <div className="grid grid-cols-2 gap-4 max-w-xl">
+              <TextField label="Tên khách hàng" placeholder="Nguyễn Văn A" icon="person" />
+              <TextField label="Email" placeholder="kh@vndirect.com.vn" icon="mail" hint="Email công ty hoặc cá nhân" />
+              <TextField label="Số điện thoại" placeholder="+84 90 xxx xxxx" icon="call" error="Số điện thoại không hợp lệ" />
+              <TextField label="Tìm kiếm" placeholder="Tìm KH, lead, sản phẩm…" icon="search" />
+            </div>
+          </Section>
+
+          {/* ── CHIPS ── */}
+          <Section id="chips">
+            <SecHeader sub="ChipToggle: boolean filter toggle. FilterBar: flex-wrap container. active prop drives state.">
+              Chips &amp; Filter Bar
+            </SecHeader>
+            <div className="mb-5">
+              <GroupLabel>Filter row — some active</GroupLabel>
+              <div className="bg-white p-4 rounded-xl ring-1 ring-outline-variant/30">
+                <FilterBar>
+                  {[
+                    { l: "Pipeline",       active: true,  icon: "filter_list" },
+                    { l: "P1 Urgent",      active: true,  icon: undefined },
+                    { l: "Hot lead",       active: false, icon: undefined },
+                    { l: "Chưa liên hệ",  active: false, icon: undefined },
+                    { l: "VIP",            active: false, icon: undefined },
+                    { l: "Referral only",  active: false, icon: undefined },
+                  ].map(({ l, active, icon }) => (
+                    <ChipToggle key={l} active={active} icon={icon}>{l}</ChipToggle>
+                  ))}
+                </FilterBar>
+              </div>
+            </div>
+            <div>
+              <GroupLabel>With icons — AI Buddy context chips</GroupLabel>
+              <div className="bg-white p-4 rounded-xl ring-1 ring-outline-variant/30">
+                <FilterBar>
+                  <ChipToggle active icon="dataset">Dữ liệu KH</ChipToggle>
+                  <ChipToggle active icon="show_chart">Pipeline</ChipToggle>
+                  <ChipToggle icon="psychology">Insight</ChipToggle>
+                  <ChipToggle icon="campaign">NAC Alert</ChipToggle>
+                  <ChipToggle icon="inventory_2">Sản phẩm</ChipToggle>
+                </FilterBar>
+              </div>
+            </div>
+          </Section>
+
+          {/* ── EMPTY STATE ── */}
+          <Section id="empty">
+            <SecHeader sub="Props: icon, title, sub, action. Used when a list or query returns no results.">
+              Empty State
+            </SecHeader>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl ring-1 ring-outline-variant/30">
+                <Empty icon="inbox" title="Chưa có lead nào"
+                  sub="Thêm lead từ nguồn referral hoặc import từ campaign."
+                  action={<Button tone="primary" size="sm" icon="add">Thêm lead</Button>} />
+              </div>
+              <div className="bg-white rounded-xl ring-1 ring-outline-variant/30">
+                <Empty icon="search" title="Không tìm thấy kết quả"
+                  sub="Thử thay đổi từ khoá hoặc bộ lọc hiện tại." />
+              </div>
+            </div>
+          </Section>
+
+          {/* ── STAT TILE ── */}
+          <Section id="stat">
+            <SecHeader sub="Props: label, value, sub, trend (number), icon, tone. Used in executive dashboards.">
+              Stat Tile
+            </SecHeader>
+            <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+              {[
+                { label: "Lead đang chăm sóc", value: "1,284", trend: 12.0, icon: "diversity_3",         tone: "blue",   sub: "+45 lead tuần này" },
+                { label: "Doanh thu dự kiến",  value: "4.2 tỷ", trend: 8.4, icon: "payments",            tone: "green",  sub: "Pipeline weighted" },
+                { label: "Onboard đang chạy",  value: "12",    trend: -4.2, icon: "fact_check",           tone: "amber",  sub: "3 vướng compliance" },
+                { label: "AUM phụ trách",      value: "184 tỷ", trend: 6.8, icon: "stacked_line_chart",   tone: "purple", sub: "Active clients · 128" },
+              ].map((s, i) => <Card key={i}><Stat {...s} /></Card>)}
+            </div>
+          </Section>
+
+          {/* ── SPARKLINE ── */}
+          <Section id="sparkline">
+            <SecHeader sub="Props: data[], width, height, stroke, fill. SVG mini-chart. Inline in tables or KPI cards.">
+              Sparkline
+            </SecHeader>
+            <div className="flex flex-wrap items-start gap-6 p-6 bg-white rounded-xl ring-1 ring-outline-variant/30">
+              {[
+                { data: sparkA, w: 120, h: 40, stroke: "#0077ED", fill: "rgba(0,119,237,.12)",  label: "vnd-primary — up" },
+                { data: sparkA, w: 180, h: 54, stroke: "#00C97D", fill: "rgba(0,201,125,.10)",  label: "accent-green · 180×54" },
+                { data: sparkB, w: 120, h: 40, stroke: "#EF4444", fill: "rgba(239,68,68,.08)",  label: "vnd-danger — down" },
+                { data: sparkA, w: 80,  h: 32, stroke: "#FF8C33", fill: "rgba(255,140,51,.10)", label: "warning · 80×32 (inline)" },
+              ].map((s, i) => (
+                <div key={i} className="flex flex-col gap-1.5">
+                  <Sparkline data={s.data} width={s.w} height={s.h} stroke={s.stroke} fill={s.fill} />
+                  <p className="text-[10.5px] font-mono text-on-surface-variant">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* ── BAR CHART ── */}
+          <Section id="barchart">
+            <SecHeader sub="Props: data=[{value,label,highlight?}], height. Hover reveals value tooltip. Highlight bar uses vnd-primary-500.">
+              Bar Chart
+            </SecHeader>
+            <Card className="max-w-lg">
+              <SectionTitle sub="Conversion lead → ký hợp đồng theo ngày"
+                action={<Button tone="ghost" size="sm" icon="open_in_new">Phân tích</Button>}>
+                Tiến độ Hiệu suất
+              </SectionTitle>
+              <BarChart data={barData} height={180} />
+            </Card>
+          </Section>
+
+          {/* ── DONUT CHART ── */}
+          <Section id="donut">
+            <SecHeader sub="Props: data=[{label,pct,color}], size, thickness, centerLabel, centerValue. Allocation visualization.">
+              Donut Chart
+            </SecHeader>
+            <div className="flex items-start gap-8 p-6 bg-white rounded-xl ring-1 ring-outline-variant/30 max-w-md">
+              <DonutChart data={donutData} size={180} thickness={22} centerValue="100%" centerLabel="Allocation" />
+              <div className="flex flex-col gap-2.5 pt-1">
+                {donutData.map(d => (
+                  <div key={d.label} className="flex items-center gap-2.5">
+                    <span className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: d.color }} />
+                    <span className="text-[13px] text-on-surface">{d.label}</span>
+                    <span className="font-mono text-[12px] text-on-surface-variant ml-auto pl-4">{d.pct}%</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+
+          {/* ── PROGRESS RING ── */}
+          <Section id="progress">
+            <SecHeader sub="Props: value (0–100), size, thickness, label (override), sub. SVG ring. Used for skill progress, BMI track.">
+              Progress Ring
+            </SecHeader>
+            <div className="flex flex-wrap items-end gap-6 p-6 bg-white rounded-xl ring-1 ring-outline-variant/30">
+              {[
+                { value: 78,  size: 60,  thickness: 5, sub: "Investment" },
+                { value: 62,  size: 76,  thickness: 6, sub: "Coaching"   },
+                { value: 92,  size: 92,  thickness: 7, sub: "Compliance" },
+                { value: 41,  size: 108, thickness: 8, sub: "Estate"     },
+                { value: 100, size: 72,  thickness: 6, sub: "Complete"   },
+              ].map((r, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                  <ProgressRing {...r} />
+                  <p className="text-[10.5px] font-mono text-on-surface-variant text-center">{r.sub}</p>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* Footer */}
+          <footer className="py-14 text-center space-y-2">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-9 h-9 bg-vnd-primary-900 rounded-lg flex items-center justify-center text-white font-display font-bold text-[18px]">D</div>
+              <p className="font-display font-bold text-title-lg text-vnd-primary-900">DSB Design System</p>
+              <Badge tone="blue" size="sm">v2.0</Badge>
+            </div>
+            <p className="text-[12px] text-on-surface-variant">VNDIRECT · Dynamic Service Blueprint · Financial Advisor OS</p>
+            <p className="font-mono text-[10.5px] text-on-surface-variant/60">
+              Tailwind CSS · React 18 · Babel · Material Symbols Outlined · Lexend · Inter · JetBrains Mono
+            </p>
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <a href="index.html" className="text-[12px] text-vnd-primary-700 hover:underline font-medium">App →</a>
+              <a href="login.html" className="text-[12px] text-vnd-primary-700 hover:underline font-medium">Login →</a>
+            </div>
+          </footer>
+
+        </main>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<DesignSystem />);
+</script>
+</body>
+</html>
